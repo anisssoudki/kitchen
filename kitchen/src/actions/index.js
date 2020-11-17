@@ -32,7 +32,7 @@ export const createUser = (params) => async dispatch => {
    const response = await users.post('/users', params);
    console.log(response)  
    dispatch  ({ type: CREATE_USER, payload: response.data });
- 
+   history.push('/')
 }
 
 export const createRecipe = formValues => async (dispatch, getState) => {
