@@ -14,7 +14,7 @@ class GoogleAuth extends React.Component {
         window.gapi.load('client:auth2', () => {
             window.gapi.client.init({
                 clientId: '516836447013-akbn630b7hlgofs7anlokkavdderp7ve.apps.googleusercontent.com',
-                // clientId: '516836447013-046h0i0e5cog6lj0ord2gus2cfdne7ck.apps.googleusercontent.com', this is for testing 
+                // clientId: '516836447013-046h0i0e5cog6lj0ord2gus2cfdne7ck.apps.googleusercontent.com', //this is for testing 
                 // clientId: '516836447013-akbn630b7hlgofs7anlokkavdderp7ve.apps.googleusercontent.com', this is for deployed
                 scope: 'profile email'
             })
@@ -32,11 +32,11 @@ class GoogleAuth extends React.Component {
 
     
 onAuthChange = (isSignedIn) => {
-  console.log(this.auth.currentUser.get().wt.Ad)
+//   console.log(this.auth.currentUser.get().getBasicProfile())
     if(isSignedIn) {
-       console.log(this.props)
-        this.props.signIn({uid: this.auth.currentUser.ne.getId(), uname: this.auth.currentUser.ne.wt.Ad, uemail: this.auth.currentUser.ne.wt.cu})
-        this.props.createUser({name: this.auth.currentUser.ne.wt.Ad, email: this.auth.currentUser.ne.wt.cu})
+    //    console.log(this.auth)
+        this.props.signIn({uid: this.auth.currentUser.get().getId(), uname: this.auth.currentUser.get().getBasicProfile().Ad, uemail: this.auth.currentUser.get().getBasicProfile().cu})
+        this.props.createUser({name: this.auth.currentUser.get().getBasicProfile().Ad, email: this.auth.currentUser.get().getBasicProfile().cu})
        
     } else {
         this.props.signOut();
@@ -66,7 +66,7 @@ renderAuthButton() {
         <i className="google icon"/>
         Logout
         </button>
-        <p>Welcome {this.auth.currentUser.get().wt.Ad}</p>
+        <p>Welcome {this.auth.currentUser.get().getBasicProfile().Ad}</p>
         </div>
         )
     } else {

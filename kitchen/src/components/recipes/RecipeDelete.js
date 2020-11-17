@@ -7,6 +7,7 @@ class RecipeDelete extends React.Component  {
  
     componentDidMount() {
 
+        console.log(this.props)
     this.props.fetchRecipe(this.props.match.params.id)
 
 }

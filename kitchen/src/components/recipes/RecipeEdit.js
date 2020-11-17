@@ -45,9 +45,10 @@ const className = `field ${meta.error && meta.touched ? 'error': ''}`
     return <div>
         <form onSubmit={this.props.handleSubmit(this.onSubmit)}  className="ui form error">
            
-           <Field name="title" component={this.renderInput}  label="Enter Title"/> 
-           <Field name="description" component={this.renderInput} label="Enter Description"/> 
-        
+            <Field name="title" component={this.renderInput}  label="Enter Title"/>     
+            <Field name="instructions" component={this.renderInput} label="Enter instructions"/> 
+            <Field name="refrences" component={this.renderInput} label="Enter reference link if any"/> 
+            <Field name="image" component={this.renderInput} label="Enter image address if any otherwise enter none"/> 
       
         
            <button className="ui button primary">Submit</button>   
