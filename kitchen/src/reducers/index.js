@@ -1,5 +1,12 @@
-import { combineReducers } from 'redux'
-import authReducer from './authReducer'
+import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
+import authReducer from './authReducer';
+import recipeReducer from './recipeReducer';
+import searchBarReducer from './searchBarReducer'
+
 export default combineReducers({
-   auth: authReducer
+   auth: authReducer,
+   form: formReducer,
+   recipes: recipeReducer,
+   yums: searchBarReducer
 })

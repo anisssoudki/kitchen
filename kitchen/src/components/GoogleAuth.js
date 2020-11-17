@@ -2,10 +2,10 @@
 // const auth = gapi.auth2.getAuthInstance()
 // refrence auth in the console auth.isSignedIn auth.signIn() to signin auth.signOut() to signout
 //gapi.auth2.getAuthInstance().currentUser will return the current user who is signed in
-
+// 516836447013-bv47oocaehigg20r1un04d5s2e3nn1un.apps.googleusercontent.com
 import React from 'react';
 import { connect } from 'react-redux';
-import { signIn, signOut } from '../actions';
+import { signIn, signOut, createUser } from '../actions';
 
 class GoogleAuth extends React.Component {
 
@@ -14,6 +14,8 @@ class GoogleAuth extends React.Component {
         window.gapi.load('client:auth2', () => {
             window.gapi.client.init({
                 clientId: '516836447013-akbn630b7hlgofs7anlokkavdderp7ve.apps.googleusercontent.com',
+                // clientId: '516836447013-046h0i0e5cog6lj0ord2gus2cfdne7ck.apps.googleusercontent.com', this is for testing 
+                // clientId: '516836447013-akbn630b7hlgofs7anlokkavdderp7ve.apps.googleusercontent.com', this is for deployed
                 scope: 'profile email'
             })
             
@@ -28,17 +30,18 @@ class GoogleAuth extends React.Component {
         }
     
 
-        onAuthChange = (isSignedIn) => {
-  
-            if(isSignedIn) {
-               
-                this.props.signIn(this.auth.currentUser.get().getId(), this.auth.currentUser.le.tt.gV )
-                // this.props.createUser({name: this.auth.currentUser.get().tt.Ad, email: this.auth.currentUser.get().tt.$t})
-               
-            } else {
-                this.props.signOut();
-            }
-         }
+    
+onAuthChange = (isSignedIn) => {
+  console.log(this.auth.currentUser.get().wt.Ad)
+    if(isSignedIn) {
+       console.log(this.props)
+        this.props.signIn({uid: this.auth.currentUser.ne.getId(), uname: this.auth.currentUser.ne.wt.Ad, uemail: this.auth.currentUser.ne.wt.cu})
+        this.props.createUser({name: this.auth.currentUser.ne.wt.Ad, email: this.auth.currentUser.ne.wt.cu})
+       
+    } else {
+        this.props.signOut();
+    }
+ }
     
 
   
@@ -63,7 +66,7 @@ renderAuthButton() {
         <i className="google icon"/>
         Logout
         </button>
-        <p>Welcome {this.auth.currentUser.le.tt.gV}</p>
+        <p>Welcome {this.auth.currentUser.get().wt.Ad}</p>
         </div>
         )
     } else {
@@ -82,7 +85,8 @@ return <div className="item">{this.renderAuthButton()}</div>;
     }
 }
 const mapStateToProps = (state) => {
-    return {isSignedIn: state.auth.isSignedIn };
+    // console.log(state)
+    return { isSignedIn: state.auth.isSignedIn, userInfo: state.auth.userInfo };
 }
 
-export default connect(mapStateToProps, {signIn, signOut })(GoogleAuth)
+export default connect(mapStateToProps, {signIn, signOut, createUser })(GoogleAuth)
