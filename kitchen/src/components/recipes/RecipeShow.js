@@ -1,7 +1,7 @@
 import React from 'react';
 
 const RecipeShow = () => {
-    return <div>RecipeShow</div>
+    return <div>still under development</div>
 };
 
 export default RecipeShow;

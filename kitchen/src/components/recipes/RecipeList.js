@@ -19,7 +19,7 @@ renderAdmin(recipe) {
     if(recipe.user_id === this.props.CurrentUserId) {
         return (
             <div className="right floated content">
-<Link to={`/recipe/edit/${recipe.id}`} className="ui button primary">
+<Link to={`/recipes/edit/${recipe.id}`} className="ui button primary">
     edit
 </Link>
 <Link to={`/recipes/delete/${recipe.id}`} className="ui button negative">
