@@ -56,6 +56,7 @@ export const fetchRecipes = () => async dispatch => {
 export const fetchRecipe = (id) => async dispatch => {
     const response = await recipes.get(`/recipes/${id}`);
     dispatch({ type: FETCH_RECIPE, payload: response.data })
+   //  console.log(response)
 };
 
 export const editRecipe = (id, formValues) => async (dispatch, getState) => {

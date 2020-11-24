@@ -22,10 +22,15 @@ const App = () => {
     <Header/>
     <Switch>
    <Route path='/yums' exact component={YummlyList}/>
+
     <Route path='/' exact component={RecipeList}/>
+
     <Route path='/recipes/:id' exact component={RecipeShow}/>
+
     <Route path='/recipes/edit/:id' exact component={RecipeEdit}/>
+
     <Route path='/recipes/delete/:id' exact component={RecipeDelete}/>
+    
     <Route path='/recipes/new' exact component={RecipeCreate}/>
     </Switch>
         
