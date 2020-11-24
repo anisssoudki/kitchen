@@ -30,8 +30,8 @@ const App = () => {
     <Route path='/recipes/edit/:id' exact component={RecipeEdit}/>
 
     <Route path='/recipes/delete/:id' exact component={RecipeDelete}/>
-    
-    <Route path='/recipes/new' exact component={RecipeCreate}/>
+
+    <Route path='/recipe/new' exact component={RecipeCreate}/>
     </Switch>
         
     </Router>

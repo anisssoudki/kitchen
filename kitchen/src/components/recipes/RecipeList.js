@@ -57,7 +57,7 @@ renderCreate() {
         return (
 
             <div>
-               <Link to="/recipes/new" className="ui button primary"> 
+               <Link to="/recipe/new" className="ui button primary"> 
                      Create Recipe
                 </Link>
 
