@@ -14,25 +14,35 @@ class RecipeShow extends React.Component {
         // console.log(this.props.fetchRecipe(this.props.match.params.id))
     }
 
-    renderRecipe() {
 
-       
-        return this.props.recipes.map(recipe => {
-                
-            if (this.props.match.params.id == recipe.id)
-            return(
+   
+    renderRecipe() {
+     
+const { recipe } = this.props
+
+if (this.props.recipe === undefined) 
+
+return(<div>loading...</div>)
+      else  return (
+           
                 <div className="item" key={recipe.id}>
-                     
-                    <i className="large middle aligned icon food red"/>
-                    <div className="content">
-                        <h1 className="ui header blue">{recipe.title}</h1>
-                        <img src={recipe.image} alt={recipe.title} width="800" height="600"/>
-                        <h3 className="description">{recipe.instructions}</h3>
+                 
+                <i className="large middle aligned icon food"/>
+                <div className="content">
+                    <h1  className=" ui header red">{recipe.title}</h1>
+                  
+                    <img src={recipe.image} alt={recipe.title} width="800" height="600"/>
+                    <div>
+                    <h3 className="description">{recipe.instructions}</h3>
+                          <a> <h2 className="">{recipe.refrences}</h2></a> 
                     </div>
-                   
                 </div>
-            )
-        })
+               
+            </div>
+           
+        )
+            
+        
     }
            
                
@@ -48,12 +58,16 @@ class RecipeShow extends React.Component {
         )   
     
 }}
+// state should say global state
 
-const mapStateToProps = (state) => {
-    // console.log(state)
+const mapStateToProps = (state, ownProps) => {
+    // console.log(state.recipes[ownProps.match.params.id])
+    // console.log(ownProps)
+
     return {
-        recipes: Object.values(state.recipes)
+        recipe: state.recipes[ownProps.match.params.id]
     }
     }
 
 export default connect(mapStateToProps, { fetchRecipe })(RecipeShow);
+// if we console log the store we would see the return vlue from map.. and the mdp
