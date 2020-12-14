@@ -35,7 +35,7 @@ return(<div>loading...</div>)
                     <img src={recipe.image} alt={recipe.title} width="800" height="600"/>
                     <div>
                     <h3 className="description">{recipe.instructions}</h3>
-                          <Link> <h2 className="">{recipe.refrences}</h2></Link> 
+                          <h2><Link> {recipe.refrences}</Link> </h2>
                     </div>
                 </div>
                
