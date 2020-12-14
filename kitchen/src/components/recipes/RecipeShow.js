@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { fetchRecipe } from '../../actions';
 import { RecipeList } from './RecipeList'
+import { Link } from 'react-router-dom'
 
 class RecipeShow extends React.Component {
 
@@ -34,7 +35,7 @@ return(<div>loading...</div>)
                     <img src={recipe.image} alt={recipe.title} width="800" height="600"/>
                     <div>
                     <h3 className="description">{recipe.instructions}</h3>
-                          <a> <h2 className="">{recipe.refrences}</h2></a> 
+                          <Link> <h2 className="">{recipe.refrences}</h2></Link> 
                     </div>
                 </div>
                
